@@ -213,6 +213,10 @@ SQInteger SQLexer::LexSingleToken()
             NEXT();
             _currentcolumn=0;
             continue;
+        case _SC('#'):
+            NEXT();
+            LexLineComment();
+            continue;
         case _SC('/'):
             NEXT();
             switch(CUR_CHAR){
